@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+
+<div class="d-flex justify-content-center py-4">
+  <div class="p-4 card" style="max-width: 60rem; width: 100%">
+    <h2 class="py-2 text-center fs-3">گزارش های من</h2>
+    <div class="p-2 px-4">
+      <div class="d-flex flex-column gap-4">
+        {% for report in reports %}
+        <div dir="rtl" class="w-100 card shadow">
+          <div class="card-body">
+            <h3 class="fs-4">{{report.title}}</h3>
+            <hr />
+            <h5 class="text-muted fs-4">
+              توسط <span class="fw-semibold fst-italic">{{report.name}}</span>
+            </h5>
+            <h5 dir="rtl" class="fs-6 btn btn-sm btn-secondary">
+              {{report.jdate}}
+            </h5>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

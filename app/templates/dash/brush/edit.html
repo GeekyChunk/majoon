@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center py-4">
+    <div class="p-4 card" style="max-width: 60rem;width: 100%;">
+        <h2 class="py-2 text-center fs-3">مسواک من</h2>
+        <div class="py-0 row justify-content-center">
+            <div dir="rtl" class="py-3">
+                <a href="/dash/brush" class="btn btn-warning">بازگشت</a>
+            </div>
+            <div class="card border-0">
+                <div class="d-flex justify-content-center">
+                    <img src="/static/brush.png" style="width: 20rem;" class="card-img-top" alt="...">
+                </div>
+                <div class="card-body">
+                    <form method="POST" dir="rtl">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button class="w-100 btn btn-primary">ذخیره</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

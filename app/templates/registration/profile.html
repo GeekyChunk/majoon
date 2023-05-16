@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center py-4">
+    <div class="p-4 card" style="max-width: 40rem;width: 100%;">
+        <h2 class="text-center">حساب کاربری</h2>
+        <div dir="rtl" class="d-flex py-4 justify-content-between">
+            <div>
+                <h4 class="fs-5">نام کاربری:</h4>
+            </div>
+            <div>
+                <input class="form-control text-center" disabled value="{{ user.username }} " type="text">
+            </div>
+        </div>
+        <div dir="rtl" class="d-flex pb-4 justify-content-between">
+            <div>
+                <h4 class="fs-5">نقش:</h4>
+            </div>
+            <div>
+                <input class="form-control text-center" disabled value="{{ role }}" type="text">
+            </div>
+        </div>
+        <a href="/accounts/logout/" class="btn btn-danger">خروج از حساب</a>
+    </div>
+</div>
+{% endblock %}

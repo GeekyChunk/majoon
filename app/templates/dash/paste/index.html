@@ -1,0 +1,38 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center py-4">
+    <div class="p-4 card rounded-0 shadow" style="max-width: 60rem;width: 100%;">
+        
+        <h2 class="py-2 text-center fs-3 pb-4">خمیر دندان های من</h2>
+        <form action="/dash/paste/add/" method="POST" class="py-2 d-flex justify-content-end">
+            {% csrf_token %}
+            {% if pastes.count == 0 %}
+                <button class="btn btn-primary">افزودن</button>
+            {% else %}
+                <button type="button" class="btn btn-secondary">افزودن</button>
+            {% endif %}
+        </form>
+        <div class="py-2 row justify-content-center">
+            {% for paste in pastes %}
+            <div class="col-12 col-sm-8 col-lg-4 px-2">
+                <div class="card p-2 rounded-0 shadow overflow-hidden">
+                        <div class="card-img-top d-flex justify-content-center px-4">
+                            <img src="/static/majoon.png" style="width: 20rem" class="img-fluid" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">خمیردندان</h5>
+                            <div class="w-100 d-flex align-items-center justify-content-between gap-2 pt-2">
+                                <a class="btn btn-primary" href="/dash/paste/{{paste.id}}/" >ویرایش</a>
+                                <a class="btn btn-danger" href="/dash/paste/{{paste.id}}/delete/">حذف</a>
+                                <button class="btn btn-info"> {{paste.level}}% </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

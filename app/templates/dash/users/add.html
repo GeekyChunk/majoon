@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center py-4">
+    <div class="p-4 card rounded-0 shadow" style="max-width: 60rem;width: 100%;">
+        <div dir="rtl" class="py-1">
+            <a href="/dash/users/" class="btn btn btn-warning">بازگشت</a>
+        </div>
+        <h2 class="py-2 text-center fs-3 pb-4">افزودن کاربر</h2>
+        <div class="py-2 row justify-content-center">
+            <form dir="rtl" method="POST">
+                {% csrf_token %}
+
+                <div id="div_id_username" class="mb-3">
+                    <label for="id_username" class="form-label requiredField">
+                        نام کاربری<span class="asteriskField">*</span>
+                    </label>
+                    <input type="text" name="username" maxlength="150" autofocus="" class="textinput form-control" required="" id="id_username">
+                </div> 
+                
+                <div id="div_id_password1" class="mb-3">
+                    <label for="id_password1" class="form-label requiredField">
+                        رمز عبور<span class="asteriskField">*</span>
+                    </label>
+                    <input type="password" name="password1" autocomplete="new-password" class="passwordinput form-control" required="" id="id_password1">
+                </div>
+
+                <div id="div_id_password2" class="mb-3">
+                    <label for="id_password2" class="form-label requiredField">
+                        تکرار رمز عبور<span class="asteriskField">*</span>
+                    </label>
+                    <input type="password" name="password2" autocomplete="new-password" class="passwordinput form-control" required="" id="id_password2"> 
+                </div>
+                
+                <button class="w-100 btn btn-primary">ذخیره</button>
+            </form>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

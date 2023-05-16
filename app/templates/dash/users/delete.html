@@ -1,0 +1,25 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center py-4">
+    <div class="p-4 card rounded-0 shadow" style="max-width: 60rem;width: 100%;">
+        <div class="py-0 row justify-content-center">
+            <div class="card border-0">
+                <div class="card-body">
+                    <form method="POST" dir="rtl">
+                        {% csrf_token %}
+                        <h3 class="pb-4 text-center">
+                            آیا از حذف اطمینان دارید؟
+                        </h3>
+                        <div dir="ltr" class="btn-group w-100">
+                            <button class="flex-grow-1 btn btn-danger">حذف</button>
+                            <a href="/dash/users/" class="flex-grow-1 btn btn-primary">بازگشت</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

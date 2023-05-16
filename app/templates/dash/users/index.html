@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center py-4">
+    <div class="p-4 card rounded-0 shadow" style="max-width: 60rem;width: 100%;">
+        <h2 class="py-2 text-center fs-3 pb-4">کاربران</h2>
+        <div dir="rtl">
+            <a href="/dash/users/add/" class="btn btn-primary">افزودن</a>
+        </div>
+        <div class="py-2 row justify-content-center">
+            {% for user in users %}
+            <div class="col-12 col-sm-8 col-lg-4 p-2">
+                <div class="card p-2 rounded-0 shadow overflow-hidden">
+                        <div class="card-img-top d-flex justify-content-center px-4">
+                            <img src="/static/avatar.png" style="height: 10rem" class="img-fluid" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{{user.username}}</h5>
+                            <div class="w-100 btn-group pb-0 pt-2">
+                                <a href="/dash/users/{{user.id}}/" class="btn btn-primary">جزئیات</a>
+                                <a href="/dash/users/{{user.id}}/delete/" class="btn btn-danger">حذف</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

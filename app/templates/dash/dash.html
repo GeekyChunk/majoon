@@ -1,0 +1,44 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center py-4">
+    <div class="p-4 card rounded-0 shadow" style="max-width: 60rem;width: 100%;">
+        <h2 class="text-center fs-3">پنل کاربری <span class="fw-bold">{{ roleFa }}</span></h2>
+        {% if role == "user" %}
+            <div dir="rtl" class="row justify-content-center pt-4">
+                <a href="/dash/paste" class="col-12 col-lg-4 py-2">
+                    <div class="w-100 btn btn-primary p-4 cursor-pointer">
+                        <h4 class="text-center">خمیر دندان های من</h4>
+                    </div>
+                </a>
+                <a href="/dash/brush" class="col-12 col-lg-4 py-2">
+                    <div class="w-100 btn btn-success p-4 cursor-pointer">
+                        <h4 class="text-center">مسواک های من</h4>
+                    </div>
+                </a>
+
+                <a href="/dash/reports" class="col-12 col-lg-4 py-2">
+                    <div class="w-100 btn btn-warning p-4 cursor-pointer">
+                        <h4 class="text-center">گزارش های من</h4>
+                    </div>
+                </a>
+            </div>
+        {% else %}
+            <div dir="rtl" class="row justify-content-center pt-4">
+                <a href="/dash/users/" class="col-12 col-lg-4 py-2">
+                    <div class="w-100 btn btn-warning p-4 cursor-pointer">
+                        <h4 class="text-center">کاربران</h4>
+                    </div>
+                </a>
+                <a href="/dash/codes/" class="col-12 col-lg-4 py-2">
+                    <div class="w-100 btn btn-success p-4 cursor-pointer">
+                        <h4 class="text-center">کد جادویی</h4>
+                    </div>
+                </a>
+            </div>
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}

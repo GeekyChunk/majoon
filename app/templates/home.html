@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="px-4 py-2 my-5 text-center">
+  <div class="d-flex justify-content-center">
+    <img class="" style="width: 14rem;height: auto;" src="{% static 'majoon.png' %}" alt="">
+  
+  </div>  
+    <h1 class="display-5 fw-bold text-body-emphasis">Majoon App</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4">برنامه معجون − سامانه یکپارچه استفاده از مسواک</p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <a href="dash" class="btn btn-primary btn-lg px-4 gap-3">ورود به سامانه</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

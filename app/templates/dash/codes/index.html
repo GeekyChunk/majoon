@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+
+<div class="d-flex justify-content-center py-4">
+  <div class="p-4 card shadow rounded-0" style="max-width: 60rem; width: 100%">
+    <h2 class="py-2 text-center fs-3">کد ها جادویی</h2>
+    <div dir="rtl">
+        <a href="/dash/codes/add" class="btn btn-primary">افزودن</a>
+    </div>
+    <div class="p-2 py-4">
+        <table dir="rtl" class="table table-striped shadow-sm border rounded-4 overflow-hidden">
+          <thead>
+            <tr class="overflow-hidden rounded-4">
+              <th scope="col">#</th>
+              <th scope="col">کاربر</th>
+              <th scope="col">کد</th>
+              <th>*</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for code in codes %}
+            <tr>
+              <th scope="row">{{code.id}}</th>
+              <td>{{code.user.username}}</td>
+              <td>{{code.code}}</td>
+              <td>
+                <a href="/dash/codes/{{code.id}}/delete/" class="btn btn btn-sm btn-danger">حذف</a>
+              </td>
+            </tr>
+            {% endfor %}
+            
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

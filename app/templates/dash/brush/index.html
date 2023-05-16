@@ -1,0 +1,32 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %}
+{% load ownerize_filter %}
+
+{% block content %}
+
+<div class="d-flex justify-content-center py-4">
+    <div class="p-4 card rounded-0 shadow" style="max-width: 60rem;width: 100%;">
+        <h2 class="py-2 text-center fs-3 pb-4">مسواک من</h2>
+        <div dir="rtl">
+            <a href="/dash/brush/add/" class="btn btn-primary">افزودن</a>
+        </div>
+        <div class="py-2 row justify-content-center">
+            {% for brush in brushes %}
+            <div class="col-12 col-sm-8 col-lg-4 p-2">
+                <div class="card p-2 rounded-0 shadow overflow-hidden">
+                        <div class="card-img-top d-flex justify-content-center px-4">
+                            <img src="/static/brush.png" style="width: 20rem" class="img-fluid" alt="...">
+                        </div>
+                        <div class="card-body">
+                            <h5 dir="rtl" class="card-title text-center">مسواک {{brush.owner_name}} ({{brush.owner|ownerize}})</h5>
+                            <div class="w-100 d-flex align-items-center justify-content-between gap-2 pt-2">
+                                <a href="/dash/brush/{{brush.id}}/" class="btn btn-primary">ویرایش</a>
+                                <a href="/dash/brush/{{brush.id}}/delete/" class="btn btn-danger">حذف</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
