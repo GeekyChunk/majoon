@@ -1,7 +1,7 @@
 from .base import *
 import os
 
-DEBUG = True
+DEBUG = False
 
 DATABASES = {
     'default': {
@@ -16,4 +16,6 @@ DATABASES = {
 
 
 STATIC_ROOT = BASE_DIR / "static"
+STATIC_URL = "static/"
 
+ALLOWED_HOSTS = ["*"]
