@@ -15,7 +15,7 @@ DATABASES = {
 }
 
 
-STATIC_ROOT = BASE_DIR / "static"
+STATIC_ROOT = "/home/ermia1303/app/static"
 STATIC_URL = "static/"
 
 ALLOWED_HOSTS = ["*"]
