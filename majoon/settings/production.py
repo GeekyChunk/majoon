@@ -6,15 +6,14 @@ DEBUG = True
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': str(os.getenv("DB_NAME")),
-        'USER': str(os.getenv("DB_USER")),
-        'PASSWORD': str(os.getenv("DB_PASS")),
-        'HOST': str(os.getenv("DB_HOST")),
-        'PORT': str(os.getenv("DB_PORT")),
+        'NAME': 'ermia1303$majoondb',
+        'USER': "ermia1303",
+        'PASSWORD': 'majoon6969',
+        'HOST': "ermia1303.mysql.pythonanywhere-services.com",
+        'PORT': '3306',
     }
 }
 
 
 STATIC_ROOT = BASE_DIR / "static"
-STATIC_URL = str(os.getenv("STATIC_URL"))
 
